@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" role="img" aria-labelledby="title">
+  <title id="title">OneSpace logo</title>
+  <rect width="160" height="40" rx="8" fill="#0f172a"/>
+  <g transform="translate(12,8)">
+    <circle cx="12" cy="12" r="10" fill="#10b981"/>
+    <path d="M6 12c0-3.3 2.7-6 6-6v12c-3.3 0-6-2.7-6-6z" fill="#064e3b"/>
+  </g>
+  <text x="48" y="26" fill="#ffffff" font-family="Inter, sans-serif" font-size="16" font-weight="600">OneSpace</text>
+</svg>

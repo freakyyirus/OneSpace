@@ -1,0 +1,274 @@
+// Proof-First Portfolio Platform - Production Schema
+// This schema is designed around PROOF, not skills
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// USER & AUTHENTICATION
+// ============================================
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String?
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts   Account[]
+  sessions   Session[]
+  portfolios Portfolio[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+// ============================================
+// DOMAIN ENGINE (CORE SYSTEM)
+// ============================================
+
+model Domain {
+  id          String   @id @default(cuid())
+  slug        String   @unique // engineer, architect, designer, etc.
+  name        String // "Software Engineer", "Product Designer"
+  description String   @db.Text
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  sections        DomainSection[]
+  validationRules ValidationRule[]
+  portfolios      Portfolio[]
+
+  @@map("domains")
+}
+
+model DomainSection {
+  id          String   @id @default(cuid())
+  domainId    String
+  slug        String // projects, case-studies, publications, etc.
+  name        String // "Projects", "Case Studies"
+  description String   @db.Text
+  isRequired  Boolean  @default(true)
+  order       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  domain            Domain              @relation(fields: [domainId], references: [id], onDelete: Cascade)
+  entryFields       EntryField[]
+  portfolioSections PortfolioSection[]
+  validationRules   ValidationRule[]
+
+  @@unique([domainId, slug])
+  @@map("domain_sections")
+}
+
+// Defines what fields an entry in a section should have
+model EntryField {
+  id              String   @id @default(cuid())
+  domainSectionId String
+  slug            String // title, description, tech-stack, problem, etc.
+  name            String
+  fieldType       String // text, textarea, url, file, metric, date, array
+  isRequired      Boolean  @default(false)
+  order           Int
+  placeholder     String?
+  helpText        String?  @db.Text
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  domainSection DomainSection @relation(fields: [domainSectionId], references: [id], onDelete: Cascade)
+
+  @@unique([domainSectionId, slug])
+  @@map("entry_fields")
+}
+
+// ============================================
+// VALIDATION & PROOF RULES
+// ============================================
+
+model ValidationRule {
+  id              String   @id @default(cuid())
+  domainId        String?
+  domainSectionId String?
+  ruleType        String // proof_required, min_proof_count, url_valid, etc.
+  config          Json // { minCount: 2, allowedTypes: ['github', 'url'] }
+  severity        String // error, warning
+  message         String   @db.Text
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  domain        Domain?        @relation(fields: [domainId], references: [id], onDelete: Cascade)
+  domainSection DomainSection? @relation(fields: [domainSectionId], references: [id], onDelete: Cascade)
+
+  @@map("validation_rules")
+}
+
+// ============================================
+// PORTFOLIO (USER'S ACTUAL PORTFOLIO)
+// ============================================
+
+model Portfolio {
+  id          String   @id @default(cuid())
+  userId      String
+  domainId    String
+  slug        String   @unique // public URL slug
+  isPublic    Boolean  @default(false)
+  isPublished Boolean  @default(false)
+  theme       String   @default("light") // light, dark
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  publishedAt DateTime?
+
+  user     User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  domain   Domain             @relation(fields: [domainId], references: [id])
+  sections PortfolioSection[]
+  metadata PortfolioMetadata?
+
+  @@unique([userId, domainId])
+  @@map("portfolios")
+}
+
+model PortfolioMetadata {
+  id          String   @id @default(cuid())
+  portfolioId String   @unique
+  headline    String?
+  bio         String?  @db.Text
+  location    String?
+  website     String?
+  linkedin    String?
+  github      String?
+  twitter     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@map("portfolio_metadata")
+}
+
+model PortfolioSection {
+  id              String   @id @default(cuid())
+  portfolioId     String
+  domainSectionId String
+  order           Int
+  isVisible       Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  portfolio     Portfolio     @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  domainSection DomainSection @relation(fields: [domainSectionId], references: [id])
+  entries       Entry[]
+
+  @@unique([portfolioId, domainSectionId])
+  @@map("portfolio_sections")
+}
+
+// ============================================
+// ENTRIES (ACTUAL WORK ITEMS)
+// ============================================
+
+model Entry {
+  id                 String   @id @default(cuid())
+  portfolioSectionId String
+  title              String
+  data               Json // Flexible storage for domain-specific fields
+  order              Int
+  isHighlighted      Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  portfolioSection PortfolioSection @relation(fields: [portfolioSectionId], references: [id], onDelete: Cascade)
+  proofObjects     ProofObject[]
+  validationStatus ValidationStatus[]
+
+  @@map("entries")
+}
+
+// ============================================
+// PROOF OBJECTS (THE CORE OF THE PLATFORM)
+// ============================================
+
+model ProofObject {
+  id          String   @id @default(cuid())
+  entryId     String
+  type        String // github, url, file, image, pdf, metric, citation
+  url         String?
+  fileUrl     String?
+  fileName    String?
+  fileSize    Int?
+  metadata    Json? // { stars: 120, commits: 45 } for GitHub, etc.
+  description String?
+  isVerified  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  entry Entry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+
+  @@map("proof_objects")
+}
+
+// ============================================
+// VALIDATION STATUS (TRACK PROOF QUALITY)
+// ============================================
+
+model ValidationStatus {
+  id        String   @id @default(cuid())
+  entryId   String
+  status    String // valid, warning, error
+  message   String   @db.Text
+  ruleType  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  entry Entry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+
+  @@map("validation_status")
+}
