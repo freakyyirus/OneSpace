@@ -216,7 +216,7 @@ export default function ProductManagerPreview() {
                 alignItems: 'flex-start',
                 gap: '10px',
             }}>
-                <span style={{ fontSize: '16px' }}>"</span>
+                <span style={{ fontSize: '16px' }}>&quot;</span>
                 <div>
                     <div style={{ fontSize: '11px', color: '#166534', fontStyle: 'italic' }}>
                         Delivered 3 major launches with zero scope creep

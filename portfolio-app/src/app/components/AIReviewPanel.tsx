@@ -44,7 +44,10 @@ export default function AIReviewPanel({ isAnalyzing = false }: AIReviewPanelProp
         // Simulate AI messages appearing one by one
         if (typingIndex < DEMO_MESSAGES.length) {
             const timer = setTimeout(() => {
-                setMessages(prev => [...prev, DEMO_MESSAGES[typingIndex]]);
+                setMessages(prev => {
+                    if (prev.some(m => m.id === DEMO_MESSAGES[typingIndex].id)) return prev;
+                    return [...prev, DEMO_MESSAGES[typingIndex]];
+                });
                 setTypingIndex(prev => prev + 1);
             }, 1500);
             return () => clearTimeout(timer);
@@ -127,10 +130,10 @@ export default function AIReviewPanel({ isAnalyzing = false }: AIReviewPanelProp
                                         ? 'rgba(245, 158, 11, 0.15)'
                                         : 'rgba(16, 185, 129, 0.15)',
                                 border: `1px solid ${msg.type === 'warning'
-                                        ? 'rgba(239, 68, 68, 0.3)'
-                                        : msg.type === 'suggestion'
-                                            ? 'rgba(245, 158, 11, 0.3)'
-                                            : 'rgba(16, 185, 129, 0.3)'
+                                    ? 'rgba(239, 68, 68, 0.3)'
+                                    : msg.type === 'suggestion'
+                                        ? 'rgba(245, 158, 11, 0.3)'
+                                        : 'rgba(16, 185, 129, 0.3)'
                                     }`,
                             }}
                         >

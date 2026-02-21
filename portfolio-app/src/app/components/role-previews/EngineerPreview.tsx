@@ -1,6 +1,44 @@
 'use client';
 
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
+
+const STREAK_SIZE = 35;
+function stableIntensities(): number[] {
+  const out: number[] = [];
+  let s = 0.314;
+  for (let i = 0; i < STREAK_SIZE; i++) {
+    s = (s * 9301 + 49297) % 233280;
+    out.push(s / 233280);
+  }
+  return out;
+}
+
+function StreakGrid() {
+  const intensities = useMemo(() => stableIntensities(), []);
+  return (
+    <div style={{ display: 'flex', gap: '2px', flexWrap: 'wrap' }}>
+      {intensities.map((intensity, i) => (
+        <div
+          key={i}
+          style={{
+            width: '10px',
+            height: '10px',
+            borderRadius: '2px',
+            backgroundColor:
+              intensity > 0.7
+                ? '#22c55e'
+                : intensity > 0.4
+                  ? '#4ade80'
+                  : intensity > 0.2
+                    ? '#bbf7d0'
+                    : '#374151',
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function EngineerPreview() {
     return (
@@ -65,7 +103,7 @@ export default function EngineerPreview() {
                 paddingBottom: '8px',
                 borderBottom: '1px solid #f1f5f9',
             }}>
-                "Building real systems, not resumes."
+                &quot;Building real systems, not resumes.&quot;
             </div>
 
             {/* LeetCode - AUTHENTIC GREEN */}
@@ -110,28 +148,7 @@ export default function EngineerPreview() {
                 </div>
 
                 {/* Streak Calendar - GREEN */}
-                <div style={{ display: 'flex', gap: '2px', flexWrap: 'wrap' }}>
-                    {Array.from({ length: 35 }).map((_, i) => {
-                        const intensity = Math.random();
-                        return (
-                            <div
-                                key={i}
-                                style={{
-                                    width: '10px',
-                                    height: '10px',
-                                    borderRadius: '2px',
-                                    backgroundColor: intensity > 0.7
-                                        ? '#22c55e'
-                                        : intensity > 0.4
-                                            ? '#4ade80'
-                                            : intensity > 0.2
-                                                ? '#bbf7d0'
-                                                : '#374151',
-                                }}
-                            />
-                        );
-                    })}
-                </div>
+                <StreakGrid />
                 <div style={{ fontSize: '10px', color: '#6b7280', marginTop: '8px' }}>
                     🔥 45 day streak
                 </div>

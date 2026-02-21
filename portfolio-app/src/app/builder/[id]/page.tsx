@@ -1,19 +1,38 @@
 'use client';
 
-import { useState } from 'react';
+import { use, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getDomainBySlug } from '@/lib/domain-engine/domains';
+import type { Portfolio } from '@/lib/types';
 
-export default function BuilderPage({ params }: { params: { id: string } }) {
-    const [activeSection, setActiveSection] = useState('projects');
+export default function BuilderPage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = use(params);
+    const [portfolio, setPortfolio] = useState<Portfolio | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [activeSection, setActiveSection] = useState<string | null>(null);
 
-    // In production, fetch portfolio from database
-    // For now, using engineer domain as example
-    const domain = getDomainBySlug('engineer');
+    useEffect(() => {
+        fetch(`/api/portfolios/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                if (!data.error) {
+                    setPortfolio(data);
+                }
+                setLoading(false);
+            })
+            .catch(() => setLoading(false));
+    }, [id]);
 
-    if (!domain) {
-        return <div>Domain not found</div>;
-    }
+    const domain = portfolio ? getDomainBySlug(portfolio.domainId) : null;
+
+    useEffect(() => {
+        if (domain && domain.sections.length > 0 && !activeSection) {
+            setActiveSection(domain.sections[0].slug);
+        }
+    }, [domain, activeSection]);
+
+    if (loading) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading Builder...</div>;
+    if (!portfolio || !domain) return <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Portfolio or Domain not found</div>;
 
     return (
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
