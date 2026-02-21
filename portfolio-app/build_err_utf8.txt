@@ -1,0 +1,822 @@
+﻿node.exe : [baseline-br
+owser-mapping] The 
+data in this module is 
+over two months old.  
+To ensure accurate 
+Baseline data, please 
+update: `npm i baseline
+-browser-mapping@latest
+ -D`
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: ([baseline-bro   
+ ws...ping@latest -    
+D`:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+   Γû▓ Next.js 16.0.10 (Turbopack)
+   - Environments: .env
+
+   Creating an optimized production build ...
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+ Γ£ô Compiled successfully in 2.8s
+   Running TypeScript ...
+   Collecting page data using 15 workers ...
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+[baseline-browser-mappi
+ng] The data in this 
+module is over two 
+months old.  To ensure 
+accurate Baseline 
+data, please update: 
+`npm i baseline-browser
+-mapping@latest -D`
+Error [PrismaClientInit
+ializationError]: 
+`PrismaClient` needs 
+to be constructed with 
+a non-empty, valid 
+`PrismaClientOptions`:
+
+```
+new PrismaClient({
+  ...
+})
+```
+
+or
+
+```
+constructor() {
+  super({ ... });
+}
+```
+          
+    at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\_6094243d
+._.js:1:82)
+    at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:715:9)
+    at getOrInstantiate
+ModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:738:12)
+    at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:228:20)
+    at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\src_lib_9
+ee5b104._.js:1:7073)
+    at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:715:9)
+    at getOrInstantiate
+ModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:738:12)
+    at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:228:20)
+    at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[root-of-
+the-server]__d83dc9f5._
+.js:1:3373) {
+  clientVersion: 
+'7.2.0',
+  errorCode: undefined,
+  retryable: undefined
+}
+Error [PrismaClientInit
+ializationError]: 
+`PrismaClient` needs 
+to be constructed with 
+a non-empty, valid 
+`PrismaClientOptions`:
+
+```
+new PrismaClient({
+  ...
+})
+```
+
+or
+
+```
+constructor() {
+  super({ ... });
+}
+```
+          
+    at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\_6094243d
+._.js:1:82)
+    at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:715:9)
+    at getOrInstantiate
+ModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:738:12)
+    at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:228:20)
+    at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\src_lib_9
+ee5b104._.js:1:7073)
+    at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:715:9)
+    at getOrInstantiate
+ModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:738:12)
+    at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:228:20)
+    at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[root-of-
+the-server]__e6659c4c._
+.js:1:3373) {
+  clientVersion: 
+'7.2.0',
+  errorCode: undefined,
+  retryable: undefined
+}
+Error: Failed to 
+collect configuration 
+for /p/[slug]
+    at ignore-listed 
+frames {
+  [cause]: Error [Prism
+aClientInitializationEr
+ror]: `PrismaClient` 
+needs to be 
+constructed with a 
+non-empty, valid 
+`PrismaClientOptions`:
+  
+  ```
+  new PrismaClient({
+    ...
+  })
+  ```
+  
+  or
+  
+  ```
+  constructor() {
+    super({ ... });
+  }
+  ```
+            
+      at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\_5f8a
+ae6a._.js:1:82)
+      at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:715:9
+)
+      at getOrInstantia
+teModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:738:1
+2)
+      at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:228:2
+0)
+      at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\src_a
+pp_p_[slug]_page_tsx_3c
+a9a5e8._.js:1:73)
+      at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:715:9
+)
+      at getOrInstantia
+teModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:738:1
+2)
+      at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:228:2
+0)
+      at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\_0736
+da2c._.js:1:33) {
+    clientVersion: 
+'7.2.0',
+    errorCode: 
+undefined,
+    retryable: 
+undefined
+  }
+}
+Error [PrismaClientInit
+ializationError]: 
+`PrismaClient` needs 
+to be constructed with 
+a non-empty, valid 
+`PrismaClientOptions`:
+
+```
+new PrismaClient({
+  ...
+})
+```
+
+or
+
+```
+constructor() {
+  super({ ... });
+}
+```
+          
+    at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\_7da3b4a0
+._.js:1:18870)
+    at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:715:9)
+    at getOrInstantiate
+ModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:738:12)
+    at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:228:20)
+    at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\_4c1cebed
+._.js:34:46562)
+    at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:715:9)
+    at getOrInstantiate
+ModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:738:12)
+    at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:228:20)
+    at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[root-of-
+the-server]__daf5105e._
+.js:1:3372) {
+  clientVersion: 
+'7.2.0',
+  errorCode: undefined,
+  retryable: undefined
+}
+Error [PrismaClientInit
+ializationError]: 
+`PrismaClient` needs 
+to be constructed with 
+a non-empty, valid 
+`PrismaClientOptions`:
+
+```
+new PrismaClient({
+  ...
+})
+```
+
+or
+
+```
+constructor() {
+  super({ ... });
+}
+```
+          
+    at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\_7da3b4a0
+._.js:1:18870)
+    at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:715:9)
+    at getOrInstantiate
+ModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:738:12)
+    at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:228:20)
+    at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:715:9)
+    at instantiateRunti
+meModule (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:743:12)
+    at getOrInstantiate
+RuntimeModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:756:12)
+    at Object.m 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\[turbopac
+k]_runtime.js:765:18) {
+  clientVersion: 
+'7.2.0',
+  errorCode: undefined,
+  retryable: undefined
+}
+Error: Failed to 
+collect configuration 
+for /dashboard
+    at ignore-listed 
+frames {
+  [cause]: Error [Prism
+aClientInitializationEr
+ror]: `PrismaClient` 
+needs to be 
+constructed with a 
+non-empty, valid 
+`PrismaClientOptions`:
+  
+  ```
+  new PrismaClient({
+    ...
+  })
+  ```
+  
+  or
+  
+  ```
+  constructor() {
+    super({ ... });
+  }
+  ```
+            
+      at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\_d2cb
+0c31._.js:4:3746)
+      at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:715:9
+)
+      at getOrInstantia
+teModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:738:1
+2)
+      at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:228:2
+0)
+      at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\_51b0
+9d33._.js:45:45698)
+      at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:715:9
+)
+      at getOrInstantia
+teModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:738:1
+2)
+      at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:228:2
+0)
+      at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[root
+-of-the-server]__bd8f2e
+8b._.js:1:5902) {
+    clientVersion: 
+'7.2.0',
+    errorCode: 
+undefined,
+    retryable: 
+undefined
+  }
+}
+Error: Failed to 
+collect configuration 
+for /builder/[id]
+    at ignore-listed 
+frames {
+  [cause]: Error [Prism
+aClientInitializationEr
+ror]: `PrismaClient` 
+needs to be 
+constructed with a 
+non-empty, valid 
+`PrismaClientOptions`:
+  
+  ```
+  new PrismaClient({
+    ...
+  })
+  ```
+  
+  or
+  
+  ```
+  constructor() {
+    super({ ... });
+  }
+  ```
+            
+      at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\_d2cb
+0c31._.js:4:3746)
+      at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:715:9
+)
+      at getOrInstantia
+teModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:738:1
+2)
+      at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:228:2
+0)
+      at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\_51b0
+9d33._.js:45:45698)
+      at 
+instantiateModule 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:715:9
+)
+      at getOrInstantia
+teModuleFromParent 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:738:1
+2)
+      at 
+Context.esmImport [as 
+i] (C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[turb
+opack]_runtime.js:228:2
+0)
+      at module 
+evaluation 
+(C:\32GB\Real 
+Projects\Project OneSpa
+ce\portfolio-app\.next\
+server\chunks\ssr\[root
+-of-the-server]__0e8352
+03._.js:1:2247) {
+    clientVersion: 
+'7.2.0',
+    errorCode: 
+undefined,
+    retryable: 
+undefined
+  }
+}
+
+> Build error occurred
+Error: Failed to 
+collect page data for 
+/api/portfolios
+    at ignore-listed 
+frames {
+  type: 'Error'
+}
