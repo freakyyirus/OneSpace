@@ -6,8 +6,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 // ============================================
@@ -37,12 +38,12 @@ model Account {
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -78,7 +79,7 @@ model Domain {
   id          String   @id @default(cuid())
   slug        String   @unique // engineer, architect, designer, etc.
   name        String // "Software Engineer", "Product Designer"
-  description String   @db.Text
+  description String
   isActive    Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -95,7 +96,7 @@ model DomainSection {
   domainId    String
   slug        String // projects, case-studies, publications, etc.
   name        String // "Projects", "Case Studies"
-  description String   @db.Text
+  description String
   isRequired  Boolean  @default(true)
   order       Int
   createdAt   DateTime @default(now())
@@ -120,7 +121,7 @@ model EntryField {
   isRequired      Boolean  @default(false)
   order           Int
   placeholder     String?
-  helpText        String?  @db.Text
+  helpText        String?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
@@ -141,7 +142,7 @@ model ValidationRule {
   ruleType        String // proof_required, min_proof_count, url_valid, etc.
   config          Json // { minCount: 2, allowedTypes: ['github', 'url'] }
   severity        String // error, warning
-  message         String   @db.Text
+  message         String
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
@@ -180,7 +181,7 @@ model PortfolioMetadata {
   id          String   @id @default(cuid())
   portfolioId String   @unique
   headline    String?
-  bio         String?  @db.Text
+  bio         String?
   location    String?
   website     String?
   linkedin    String?
@@ -237,18 +238,20 @@ model Entry {
 // ============================================
 
 model ProofObject {
-  id          String   @id @default(cuid())
-  entryId     String
-  type        String // github, url, file, image, pdf, metric, citation
-  url         String?
-  fileUrl     String?
-  fileName    String?
-  fileSize    Int?
-  metadata    Json? // { stars: 120, commits: 45 } for GitHub, etc.
-  description String?
-  isVerified  Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id                 String   @id @default(cuid())
+  entryId            String
+  type               String // github, url, file, image, pdf, metric, citation
+  url                String?
+  fileUrl            String?
+  fileName           String?
+  fileSize           Int?
+  metadata           Json? // { stars: 120, commits: 45 } for GitHub, etc.
+  description        String?
+  isVerified         Boolean  @default(false)
+  verificationStatus String   @default("pending") // pending, verified, failed
+  urlHash            String? // hash of URL/content for integrity
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 
   entry Entry @relation(fields: [entryId], references: [id], onDelete: Cascade)
 
@@ -263,7 +266,7 @@ model ValidationStatus {
   id        String   @id @default(cuid())
   entryId   String
   status    String // valid, warning, error
-  message   String   @db.Text
+  message   String
   ruleType  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
