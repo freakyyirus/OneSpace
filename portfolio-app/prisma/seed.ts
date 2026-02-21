@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, type Prisma } from '@prisma/client';
 import { getAllDomains } from '../src/lib/domain-engine/domains';
 
 const prisma = new PrismaClient();
@@ -119,7 +119,7 @@ async function main() {
                     domainId: domain.id,
                     domainSectionId: appliedSection?.id,
                     ruleType: validationRule.ruleType,
-                    config: validationRule.config,
+                    config: validationRule.config as Prisma.InputJsonValue,
                     severity: validationRule.severity,
                     message: validationRule.message,
                 },
