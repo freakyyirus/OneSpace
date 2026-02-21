@@ -175,9 +175,10 @@ export function getDomainById(id: string): Domain | undefined {
   return DOMAINS.find(d => d.id === id);
 }
 
-export function validatePortfolio(portfolio: any, domain: Domain): string[] {
+export function validatePortfolio(portfolio: unknown, domain: Domain): string[] {
+  void portfolio;
+  void domain;
   const errors: string[] = [];
   // Implement validation logic based on domain rules
-  // For now, placeholder
   return errors;
 }

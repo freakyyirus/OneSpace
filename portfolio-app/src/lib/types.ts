@@ -44,6 +44,8 @@ export interface User {
 export interface Portfolio {
   id: string;
   userId: string;
+  domainId: string;
+  slug: string;
   title: string;
   overview: string;
   sections: PortfolioSection[]; // Ordered sections
@@ -69,6 +71,8 @@ export interface Proof {
   type: ProofRequirement['type'];
   title: string;
   content: string; // URL, text, etc.
+  verificationStatus?: 'pending' | 'verified' | 'failed';
+  urlHash?: string | null;
   createdAt: Date;
 }
 

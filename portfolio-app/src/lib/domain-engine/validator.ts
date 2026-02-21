@@ -5,7 +5,7 @@ export interface ProofObject {
     type: ProofType;
     url?: string;
     fileUrl?: string;
-    metadata?: Record<string, any>;
+    metadata?: Record<string, unknown>;
 }
 
 export class ProofValidator {

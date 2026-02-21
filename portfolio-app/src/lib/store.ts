@@ -9,8 +9,9 @@ async function readStore(): Promise<Portfolio[]> {
     const raw = await fs.readFile(dataPath, 'utf-8');
     const parsed = JSON.parse(raw) as Portfolio[];
     return parsed.map((p) => ({ ...p, createdAt: new Date(p.createdAt), updatedAt: new Date(p.updatedAt) }));
-  } catch (err: any) {
-    if (err.code === 'ENOENT') return [];
+  } catch (err: unknown) {
+    if (err instanceof Error && 'code' in err && err.code === 'ENOENT')
+      return [];
     throw err;
   }
 }
@@ -35,9 +36,11 @@ export async function createPortfolio(data: Partial<Portfolio>): Promise<Portfol
   const newItem: Portfolio = {
     id: (data.id as string) ?? `p-${Math.random().toString(36).slice(2, 9)}`,
     userId: (data.userId as string) ?? 'unknown',
+    domainId: (data.domainId as string) ?? 'engineer',
+    slug: (data.slug as string) ?? 'untitled',
     title: (data.title as string) ?? 'Untitled',
     overview: (data.overview as string) ?? '',
-    sections: (data.sections as any) ?? [],
+    sections: (data.sections as Portfolio['sections']) ?? [],
     theme: (data.theme as 'light' | 'dark') ?? 'light',
     createdAt: now,
     updatedAt: now,
