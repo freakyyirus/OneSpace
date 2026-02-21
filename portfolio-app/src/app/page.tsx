@@ -552,7 +552,7 @@ export default function LandingPage() {
                     border: '1px solid #fde68a',
                     color: '#92400e',
                   }}>
-                    "Improved team productivity" ⚠️
+                    &quot;Improved team productivity&quot; ⚠️
                   </div>
                 </div>
 

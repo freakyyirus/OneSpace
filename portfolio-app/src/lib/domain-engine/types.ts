@@ -69,7 +69,7 @@ export interface ProofRuleDefinition {
 
 export interface ValidationRuleDefinition {
   ruleType: ValidationRuleType;
-  config: Record<string, any>;
+  config: Record<string, unknown>;
   severity: ValidationSeverity;
   message: string;
   appliesTo?: string; // section slug
